@@ -1,0 +1,5 @@
+age = int(14)   #this is a comment
+name = string("Alex")
+
+say(age)
+say(name)

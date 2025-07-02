@@ -1,4 +1,1 @@
-mynumber = int(4)
-myname = string("alex")
-say(myname)
-say(mynumber)
+say("Hello, world!")

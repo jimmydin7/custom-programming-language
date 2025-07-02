@@ -1,17 +1,7 @@
 # Tokenizer
 import re
+from .tokens import TOKEN_TYPES
 
-TOKEN_TYPES = [
-    ("STRING", r'"[^"]*"'),
-    ("INT", r'\d+'),
-    ("ID", r'[a-zA-Z_]\w*'),
-    ("EQUALS", r'='),
-    ("LPAREN", r'\('),
-    ("RPAREN", r'\)'),
-    ("COMMA", r','),
-    ("NEWLINE", r'\n'),
-    ("SKIP", r'[ \t]+') 
-]
 
 class Tokenizer:
     def __init__(self, source):
@@ -26,11 +16,11 @@ class Tokenizer:
         for match in regex.finditer(self.source):
             kind = match.lastgroup
             value = match.group()
-            if kind == 'SKIP':
+            if kind in ('SKIP', 'COMMENT'):  # Skip whitespace and comments
                 continue
             elif kind == 'NEWLINE':
                 self.line += 1
             else:
                 self.tokens.append((kind, value, self.line))
-            
+    
         return self.tokens
