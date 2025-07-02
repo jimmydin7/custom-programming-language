@@ -32,7 +32,6 @@ say(mynumber)
 1. have **Python 3.x** installed
 2. clone the repository
 3. add your code to a `.txt` file and specify it's path on main.py `source_code_path` variable
-4. run the python file
    ```bash
    python main.py
    ```
