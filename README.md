@@ -14,6 +14,9 @@ This version supports basic features like:
 ## Example Code
 
 ```plaintext
+# Print
+say("Hello, world!")
+
 # Define a string
 myname = string("Alex")
 
@@ -31,9 +34,10 @@ say(mynumber)
 
 1. have **Python 3.x** installed
 2. clone the repository
-3. add your code to a `.txt` file and specify it's path on main.py `source_code_path` variable
+3. add your code to a `.txt` file
+4. run the python file and add your source code's path as an argument
    ```bash
-   python main.py
+   python run.py sourcecode.txt
    ```
 
 ---

@@ -48,14 +48,26 @@ class Parser:
             "value": value
         }
     
-    def parse_say(self):
-        self.expect('ID')                     # say
-        self.expect('LPAREN')                 # (
-        var = self.expect('ID')[1]            
+    def parse_say(self): #allowing say("custom text")
+        self.expect('ID')                    
+        self.expect('LPAREN')                 
+
+        token = self.peek()
+        if token[0] == 'ID':
+            value = self.expect('ID')[1]
+            value_type = 'variable'
+        elif token[0] == 'STRING':
+            value = self.expect('STRING')[1].strip('"')  # remove quotes
+            value_type = 'string'
+        else:
+            self.error(f"Expected variable name or string, got {token}")
+
         self.expect('RPAREN')                 # )
+
         return {
             "type": "say",
-            "value": var
+            "value": value,
+            "value_type": value_type
         }
 
     def expect(self, expected_type):

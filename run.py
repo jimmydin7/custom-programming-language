@@ -2,9 +2,16 @@
 from lang.lexer import Tokenizer
 from lang.parser import Parser
 from lang.interpreter import Interpreter
+import sys
 
 
-source_code_path = 'examples/hello.txt'
+try:    
+    source_code_path = sys.argv[1]
+except Exception:
+    print("Please add your source code's path as an argument, example:")
+    print(" ")
+    print("python run.py sourcecode.txt")
+    quit()
 
 
 

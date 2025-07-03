@@ -3,3 +3,7 @@ name = string("Alex")
 
 say(age)
 say(name)
+
+status = string("coding")
+say("hi")
+say(status)
