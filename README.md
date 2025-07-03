@@ -1,4 +1,5 @@
 # Custom Programming Language
+**View demo & docs [here](https://jimmydin7.github.io/custom-programming-language/docs)**
 
 A simple programming language built from scratch in Python.  
 Includes full lexer (tokenizer), parser, and interpreter
@@ -65,8 +66,10 @@ say(mynumber)
 
 ---
 
+
 ## Why?
 
 This is a learning project to understand how programming languages work (tokenizing, parsing, interpreting)
 
 ---
+**View demo & docs [here](https://jimmydin7.github.io/custom-programming-language/docs)**
