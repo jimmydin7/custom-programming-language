@@ -2,8 +2,9 @@
 **View demo & docs [here](https://jimmydin7.github.io/custom-programming-language/docs)**
 
 A simple programming language built from scratch in Python.  
-Includes full lexer (tokenizer), parser, and interpreter
+Includes full lexer (tokenizer), parser, and interpreter (no real-world senario, just educational)
 This version supports basic features like:
+
 
 - Variable declarations (with `int` and `string` types)
 - Printing output using `say()`
