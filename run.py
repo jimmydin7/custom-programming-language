@@ -1,8 +1,12 @@
-# main
-from lang.lexer import Tokenizer
-from lang.parser import Parser
-from lang.interpreter import Interpreter
 import sys
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+# main
+from lang.tokenizer.lexer import Tokenizer
+from lang.parser.parser import Parser
+from lang.interpreter.interpreter import Interpreter
+
 
 
 try:    

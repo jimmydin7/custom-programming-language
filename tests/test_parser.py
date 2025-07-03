@@ -3,7 +3,7 @@ import os
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 
-from lang.parser import Parser
+from lang.parser.parser import Parser
 
 def test_parse_var_assign():
     tokens = [

@@ -3,7 +3,7 @@ import os
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 
-from lang.interpreter import Interpreter
+from lang.interpreter.interpreter import Interpreter
 
 def test_say_statement(capsys):
     ast = [
