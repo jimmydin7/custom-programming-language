@@ -1,5 +1,5 @@
 #AST Generator
-from .ast_nodes import VarAssign, Say
+from .ast_nodes import VarAssign, Say, Repeat
 from helpers.utils import *
 
 class Parser:
@@ -22,6 +22,8 @@ class Parser:
             if token[0] == 'ID':
                 if token[1] == 'say':
                     self.ast.append(self.parse_say())
+                elif token[1] == 'repeat':
+                    self.ast.append(self.parse_repeat())
                 else:
                     self.ast.append(self.parse_var_assign())
             else:
@@ -65,6 +67,27 @@ class Parser:
 
         return Say(value, value_type)
 
+    def parse_repeat(self):
+        self.expect('ID')  # 'repeat'
+        count_token = self.expect('INT')
+        count = int(count_token[1])
+        self.expect('LBRACE')
+
+        body = []
+        while self.peek() and self.peek()[0] != 'RBRACE':
+            token = self.peek()
+            if token[0] == 'ID':
+                if token[1] == 'say':
+                    body.append(self.parse_say())
+                elif token[1] == 'repeat':
+                    body.append(self.parse_repeat())
+                else:
+                    body.append(self.parse_var_assign())
+            else:
+                self.error(f"Unexpected token {token} in repeat body")
+
+        self.expect('RBRACE')
+        return Repeat(count, body)
 
     def expect(self, expected_type):
         token = self.peek()

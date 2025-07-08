@@ -1,0 +1,5 @@
+status = string("this is repeated 4 times")
+
+repeat 4{
+    say(status)
+}

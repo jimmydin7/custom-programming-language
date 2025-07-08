@@ -15,3 +15,11 @@ class Say:
 
     def __repr__(self):
         return f"Say(value={self.value!r}, value_type={self.value_type!r})"
+
+class Repeat:
+    def __init__(self, count, body):
+        self.count = count
+        self.body = body
+
+    def __repr__(self):
+        return f"Repeat(count={self.count!r}, body={self.body!r})"

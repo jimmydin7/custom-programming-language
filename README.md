@@ -10,6 +10,7 @@ This version supports basic features like:
 - Printing output using `say()`
 - Comment support (`#` for single-line comments)
 - Debug Mode to see tokenizing and parsing happen in real time
+- Repeat blocks for simple loops (`repeat x { ... }`)
 
 ---
 
@@ -28,6 +29,11 @@ mynumber = int(42)
 # Output the values
 say(myname)
 say(mynumber)
+
+# Repeat block demo
+repeat 3 {
+    say("hi!")
+}
 ```
 
 ---
@@ -50,6 +56,7 @@ say(mynumber)
 - [x] Print with `say()`
 - [x] Comments (`#`)
 - [x] Tokenizer and AST
+- [x] Repeat blocks (`repeat x { ... }`)
 - [ ] Error handling (improved)
 - [ ] Expressions / math
 - [ ] Control flow (`if`, `while`, etc.)

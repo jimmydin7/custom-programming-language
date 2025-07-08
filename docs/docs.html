@@ -134,6 +134,11 @@
                             <td><code>say(variableName)</code></td>
                             <td>Print the value of a variable</td>
                         </tr>
+                        <tr>
+                            <td>Repeat Block</td>
+                            <td><code>repeat 3 {<br>&nbsp;&nbsp;say("hi")<br>}</code></td>
+                            <td>Repeat the statements inside the braces a specified number of times</td>
+                        </tr>
                     </tbody>
                 </table>
             </section>
@@ -164,7 +169,14 @@
 
 <span class="function">say</span>(age)
                 </div>
-
+                <h3>Repeat Block Demo</h3>
+                <div class="code-block">
+<span class="comment"># Repeat a statement multiple times</span>
+<br>
+<span class="keyword">repeat 4 {</span>
+<br>&nbsp;&nbsp;<span class="function">say</span>(<span class="string">"hello!"</span>)
+<br><span class="keyword">}</span>
+                </div>
             </section>
 
             <section id="architecture" class="section">
@@ -179,7 +191,7 @@
     
     <div class="feature-card">
         <h4>Parser</h4>
-        <p>Uses these tokens to build a tree that shows the program’s structure.</p>
+        <p>Uses these tokens to build a tree that shows the program's structure.</p>
     </div>
     
     <div class="feature-card">

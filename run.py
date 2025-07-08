@@ -12,9 +12,14 @@ from lang.interpreter.interpreter import Interpreter
 try:    
     source_code_path = sys.argv[1]
 except Exception:
-    print("Please add your source code's path as an argument, example:")
-    print(" ")
-    print("python run.py sourcecode.txt")
+    print("""
+=============================================================        
+Please add your source code's path as an argument, example:
+          
+          python run.py sourcecode.txt
+
+============================================================
+""")
     quit()
 
 

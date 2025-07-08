@@ -6,6 +6,8 @@ TOKEN_TYPES = [
     ('STRING',    r'"[^"]*"'),
     ('LPAREN',    r'\('),
     ('RPAREN',    r'\)'),
+    ('LBRACE',    r'\{'),
+    ('RBRACE',    r'\}'),
     ('NEWLINE',   r'\n'),
     ('SKIP',      r'[ \t]+'),
     ('MISMATCH',  r'.'),
