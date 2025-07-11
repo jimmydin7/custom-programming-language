@@ -1,0 +1,2 @@
+result = int((2 + 3) * 4 - 6 / 2)
+say(result)

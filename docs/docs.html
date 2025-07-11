@@ -139,6 +139,11 @@
                             <td><code>repeat 3 {<br>&nbsp;&nbsp;say("hi")<br>}</code></td>
                             <td>Repeat the statements inside the braces a specified number of times</td>
                         </tr>
+                        <tr>
+                            <td>Arithmetic Operators</td>
+                            <td><code>+, -, *, /</code></td>
+                            <td>Supports arithmetic in expressions and assignments</td>
+                        </tr>
                     </tbody>
                 </table>
             </section>
@@ -176,6 +181,20 @@
 <span class="keyword">repeat 4 {</span>
 <br>&nbsp;&nbsp;<span class="function">say</span>(<span class="string">"hello!"</span>)
 <br><span class="keyword">}</span>
+                </div>
+                <h3>Arithmetic Operators Demo</h3>
+                <div class="code-block">
+<span class="comment"># Calculate minutes in a day</span>
+<br>
+<span class="keyword">minutes_in_a_day = </span> int(<span class="int">60</span> * <span class="int">24</span>)
+<br>
+<span class="function">say</span>(minutes_in_a_day)
+<br>
+<span class="comment"># More complex expression</span>
+<br>
+<span class="keyword">result = </span> int((<span class="int">2</span> + <span class="int">3</span>) * <span class="int">4</span> - <span class="int">6</span> / <span class="int">2</span>)
+<br>
+<span class="function">say</span>(result)
                 </div>
             </section>
 

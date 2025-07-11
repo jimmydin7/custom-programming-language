@@ -15,6 +15,7 @@ class Say:
 
     def __repr__(self):
         return f"Say(value={self.value!r}, value_type={self.value_type!r})"
+    
 
 class Repeat:
     def __init__(self, count, body):
@@ -23,3 +24,12 @@ class Repeat:
 
     def __repr__(self):
         return f"Repeat(count={self.count!r}, body={self.body!r})"
+
+class BinOp: #binary operations
+    def __init__(self, left, op, right):
+        self.left = left
+        self.op = op
+        self.right = right
+    
+    def __repr__(self):
+        return f"BinOp(left={self.left!r}, op={self.op!r}, right={self.right!r})"

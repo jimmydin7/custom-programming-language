@@ -11,6 +11,7 @@ This version supports basic features like:
 - Comment support (`#` for single-line comments)
 - Debug Mode to see tokenizing and parsing happen in real time
 - Repeat blocks for simple loops (`repeat x { ... }`)
+- Arithmetic operators in expressions (`+`, `-`, `*`, `/`)
 
 ---
 
@@ -34,6 +35,16 @@ say(mynumber)
 repeat 3 {
     say("hi!")
 }
+
+# Arithmetic operators demo
+minutes_in_a_day = int(60 * 24)
+say(minutes_in_a_day)
+
+sum = int(5 + 3)
+say(sum)
+
+complex = int((2 + 3) * 4 - 6 / 2)
+say(complex)
 ```
 
 ---
@@ -57,17 +68,17 @@ repeat 3 {
 - [x] Comments (`#`)
 - [x] Tokenizer and AST
 - [x] Repeat blocks (`repeat x { ... }`)
+- [x] Arithmetic operators in expressions
 - [ ] Error handling (improved)
 - [ ] Expressions / math
-- [ ] Control flow (`if`, `while`, etc.)
+- [ ] `if` statements
+- [ ] `else` statements
 
 ---
 
 ## Planned for Future Versions
 
-- Arithmetic operations (`+`, `-`, etc.)
 - Conditionals (`if`, `else`)
-- Loops (`while`, `for`)
 - Functions
 - Type checking
 - Custom runtime errors

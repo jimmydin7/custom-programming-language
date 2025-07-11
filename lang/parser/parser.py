@@ -1,5 +1,5 @@
 #AST Generator
-from .ast_nodes import VarAssign, Say, Repeat
+from .ast_nodes import VarAssign, Say, Repeat, BinOp
 from helpers.utils import *
 
 class Parser:
@@ -38,12 +38,12 @@ class Parser:
 
         if datatype == 'string':
             value_token = self.expect('STRING')
+            value = value_token[1].strip('"')
         elif datatype == 'int':
-            value_token = self.expect('INT')
+            value = self.parse_expression()  # Parse a full expression for int
         else:
             self.error("Unexpected datatype")
 
-        value = value_token[1].strip('"') #remove quotes
         self.expect('RPAREN') #)
         return VarAssign(name, datatype, value)
 
@@ -88,6 +88,38 @@ class Parser:
 
         self.expect('RBRACE')
         return Repeat(count, body)
+
+    def parse_expression(self):
+        node = self.parse_term()
+        while self.peek() and self.peek()[0] in ('PLUS', 'MINUS'):
+            op_token = self.expect(self.peek()[0])
+            right = self.parse_term()
+            node = BinOp(node, op_token[1], right)
+        return node
+
+    def parse_term(self):
+        node = self.parse_factor()
+        while self.peek() and self.peek()[0] in ('STAR', 'SLASH'):
+            op_token = self.expect(self.peek()[0])
+            right = self.parse_factor()
+            node = BinOp(node, op_token[1], right)
+        return node
+
+    def parse_factor(self):
+        token = self.peek()
+        if token[0] == 'INT':
+            return int(self.expect('INT')[1])
+        elif token[0] == 'ID':
+            return self.expect('ID')[1]
+        elif token[0] == 'LPAREN':
+            self.expect('LPAREN')
+            node = self.parse_expression()
+            self.expect('RPAREN')
+            return node
+        else:
+            self.error(f"Unexpected token in factor: {token}")
+
+    
 
     def expect(self, expected_type):
         token = self.peek()

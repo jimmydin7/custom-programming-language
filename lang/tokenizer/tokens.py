@@ -10,5 +10,10 @@ TOKEN_TYPES = [
     ('RBRACE',    r'\}'),
     ('NEWLINE',   r'\n'),
     ('SKIP',      r'[ \t]+'),
-    ('MISMATCH',  r'.'),
+    ('PLUS',     r'\+'),
+('MINUS',    r'-'),
+('STAR',     r'\*'),
+('SLASH',    r'/'),
+    ('MISMATCH',  r'.')
+    
 ]
