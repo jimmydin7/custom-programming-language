@@ -1,4 +1,8 @@
 # Custom Programming Language
+![GitHub Clones](https://img.shields.io/badge/GitHub%20Clones-77-blue?logo=github&style=for-the-badge)
+![GitHub Visitors](https://img.shields.io/badge/GitHub%20Visitors-281-brightgreen?logo=github&style=for-the-badge)
+
+
 **View demo & docs [here](https://jimmydin7.github.io/custom-programming-language/docs)**
 
 A simple programming language built from scratch in Python.  
