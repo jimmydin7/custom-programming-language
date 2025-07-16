@@ -1,3 +1,5 @@
+![GitHub Clones](https://img.shields.io/badge/GitHub%20Clones-84-blue?logo=github&style=for-the-badge)
+![GitHub Visitors](https://img.shields.io/badge/GitHub%20Visitors-341-brightgreen?logo=github&style=for-the-badge)
 # Custom Programming Language
 **View demo & docs [here](https://jimmydin7.github.io/custom-programming-language/docs)**
 
