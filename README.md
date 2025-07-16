@@ -85,7 +85,7 @@ if x == 5 {
 - [x] Repeat blocks (`repeat x { ... }`)
 - [x] Arithmetic operators in expressions
 - [x] If statements for conditional execution
+- [x] Expressions / math
 - [ ] Error handling (improved)
-- [ ] Expressions / math
-- [ ] `if` statements
-- [ ] `
+- [ ] Functions
+- [ ] Arguments on functions
