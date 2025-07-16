@@ -1,0 +1,5 @@
+minutes = int(100)
+
+if minutes == 100{
+    say("there are more than 100 minutes in a day!")
+}

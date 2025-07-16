@@ -1,5 +1,5 @@
 from .environment import Environment
-from ..parser.ast_nodes import VarAssign, Say, Repeat, BinOp
+from ..parser.ast_nodes import VarAssign, Say, Repeat, BinOp, If
 
 class Interpreter:
     def __init__(self, ast):
@@ -21,13 +21,25 @@ class Interpreter:
             elif node.op == '*':
                 return left * right
             elif node.op == '/':
-                return left // right  # integer division
+                return left // right 
+            elif node.op == '>':
+                return left > right
+            elif node.op == '<':
+                return left < right
+            elif node.op == '>=':
+                return left >= right
+            elif node.op == '<=':
+                return left <= right
+            elif node.op == '==':
+                return left == right
+            elif node.op == '!=':
+                return left != right
             else:
                 raise RuntimeError(f"Unknown operator: {node.op}")
         elif isinstance(node, int):
             return node
         elif isinstance(node, str):
-            # Could be a variable name
+
             try:
                 return self.env.get_variable(node)
             except Exception:
@@ -53,6 +65,11 @@ class Interpreter:
 
         elif isinstance(node, Repeat):
             for _ in range(node.count):
+                for stmt in node.body:
+                    self.execute(stmt)
+        elif isinstance(node, If):
+            condition_result = self.eval_node(node.condition)
+            if condition_result:
                 for stmt in node.body:
                     self.execute(stmt)
         else:

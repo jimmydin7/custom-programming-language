@@ -144,6 +144,11 @@
                             <td><code>+, -, *, /</code></td>
                             <td>Supports arithmetic in expressions and assignments</td>
                         </tr>
+                        <tr>
+                            <td>If Statement</td>
+                            <td><code>if x &gt; 5 {<br>&nbsp;&nbsp;say("x is greater than 5")<br>}</code></td>
+                            <td>Conditionally execute statements if the condition is true</td>
+                        </tr>
                     </tbody>
                 </table>
             </section>
@@ -195,6 +200,24 @@
 <span class="keyword">result = </span> int((<span class="int">2</span> + <span class="int">3</span>) * <span class="int">4</span> - <span class="int">6</span> / <span class="int">2</span>)
 <br>
 <span class="function">say</span>(result)
+                </div>
+                <h3>If Statement Demo</h3>
+                <div class="code-block">
+<span class="comment"># If statement demo</span>
+<br>
+<span class="keyword">minutes = </span> int(<span class="int">60</span> * <span class="int">24</span>)
+<br>
+<span class="keyword">if</span> minutes &gt; <span class="int">100</span> {
+<br>&nbsp;&nbsp;<span class="function">say</span>(<span class="string">"there are more than 100 minutes in a day!"</span>)
+<br>}
+<br>
+<span class="comment"># If with equality</span>
+<br>
+<span class="keyword">x = </span> int(<span class="int">5</span>)
+<br>
+<span class="keyword">if</span> x == <span class="int">5</span> {
+<br>&nbsp;&nbsp;<span class="function">say</span>(<span class="string">"x is five!"</span>)
+<br>}
                 </div>
             </section>
 

@@ -1,6 +1,12 @@
-TOKEN_TYPES = [
+TOKEN_TYPES = [ #first one is the first to be read, order matters
     ('COMMENT',   r'#.*'),
     ('ID',        r'[a-zA-Z_][a-zA-Z0-9_]*'),
+    ('EQ',      r'=='),
+    ('NEQ',     r'!='),
+    ('GTE',     r'>='),
+    ('LTE',     r'<='),
+    ('GT',      r'>'),
+    ('LT',      r'<'),
     ('EQUALS',    r'='),
     ('INT',       r'\d+'),
     ('STRING',    r'"[^"]*"'),
@@ -11,9 +17,8 @@ TOKEN_TYPES = [
     ('NEWLINE',   r'\n'),
     ('SKIP',      r'[ \t]+'),
     ('PLUS',     r'\+'),
-('MINUS',    r'-'),
-('STAR',     r'\*'),
-('SLASH',    r'/'),
-    ('MISMATCH',  r'.')
-    
+    ('MINUS',    r'-'),
+    ('STAR',     r'\*'),
+    ('SLASH',    r'/'),
+    ('MISMATCH',  r'.'),
 ]

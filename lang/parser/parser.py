@@ -1,5 +1,5 @@
 #AST Generator
-from .ast_nodes import VarAssign, Say, Repeat, BinOp
+from .ast_nodes import VarAssign, Say, Repeat, BinOp, If
 from helpers.utils import *
 
 class Parser:
@@ -24,6 +24,8 @@ class Parser:
                     self.ast.append(self.parse_say())
                 elif token[1] == 'repeat':
                     self.ast.append(self.parse_repeat())
+                elif token[1] == 'if':
+                    self.ast.append(self.parse_if())
                 else:
                     self.ast.append(self.parse_var_assign())
             else:
@@ -81,6 +83,8 @@ class Parser:
                     body.append(self.parse_say())
                 elif token[1] == 'repeat':
                     body.append(self.parse_repeat())
+                elif token[1] == 'if':
+                    body.append(self.parse_if())
                 else:
                     body.append(self.parse_var_assign())
             else:
@@ -130,3 +134,34 @@ class Parser:
 
     def error(self, message):
         raise SyntaxError(message)
+
+    def parse_condition(self):
+        left = self.parse_expression()
+        op_token = self.peek()
+        if op_token[0] in ('EQ', 'NEQ', 'GTE', 'LTE', 'GT', 'LT'):
+            op = self.expect(op_token[0])[1]
+            right = self.parse_expression()
+            return BinOp(left, op, right)
+        else:
+            self.error(f"Expected comparison operator, got {op_token}")
+
+    def parse_if(self):
+        self.expect('ID')  # 'if'
+        condition = self.parse_condition()
+        self.expect('LBRACE')
+        body = []
+        while self.peek() and self.peek()[0] != 'RBRACE':
+            token = self.peek()
+            if token[0] == 'ID':
+                if token[1] == 'say':
+                    body.append(self.parse_say())
+                elif token[1] == 'repeat':
+                    body.append(self.parse_repeat())
+                elif token[1] == 'if':
+                    body.append(self.parse_if())
+                else:
+                    body.append(self.parse_var_assign())
+            else:
+                self.error(f"Unexpected token {token} in if body")
+        self.expect('RBRACE')
+        return If(condition, body)

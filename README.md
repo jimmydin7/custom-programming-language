@@ -1,8 +1,4 @@
 # Custom Programming Language
-![GitHub Clones](https://img.shields.io/badge/GitHub%20Clones-77-blue?logo=github&style=for-the-badge)
-![GitHub Visitors](https://img.shields.io/badge/GitHub%20Visitors-281-brightgreen?logo=github&style=for-the-badge)
-
-
 **View demo & docs [here](https://jimmydin7.github.io/custom-programming-language/docs)**
 
 A simple programming language built from scratch in Python.  
@@ -16,6 +12,7 @@ This version supports basic features like:
 - Debug Mode to see tokenizing and parsing happen in real time
 - Repeat blocks for simple loops (`repeat x { ... }`)
 - Arithmetic operators in expressions (`+`, `-`, `*`, `/`)
+- If statements for conditional execution (`if ... { ... }`)
 
 ---
 
@@ -49,6 +46,18 @@ say(sum)
 
 complex = int((2 + 3) * 4 - 6 / 2)
 say(complex)
+
+# If statement demo
+minutes = int(60 * 24)
+if minutes > 100 {
+    say("there are more than 100 minutes in a day!")
+}
+
+# If with equality
+x = int(5)
+if x == 5 {
+    say("x is five!")
+}
 ```
 
 ---
@@ -73,26 +82,8 @@ say(complex)
 - [x] Tokenizer and AST
 - [x] Repeat blocks (`repeat x { ... }`)
 - [x] Arithmetic operators in expressions
+- [x] If statements for conditional execution
 - [ ] Error handling (improved)
 - [ ] Expressions / math
 - [ ] `if` statements
-- [ ] `else` statements
-
----
-
-## Planned for Future Versions
-
-- Conditionals (`if`, `else`)
-- Functions
-- Type checking
-- Custom runtime errors
-
----
-
-
-## Why?
-
-This is a learning project to understand how programming languages work (tokenizing, parsing, interpreting)
-
----
-**View demo & docs [here](https://jimmydin7.github.io/custom-programming-language/docs)**
+- [ ] `

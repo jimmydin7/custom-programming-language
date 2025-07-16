@@ -33,3 +33,11 @@ class BinOp: #binary operations
     
     def __repr__(self):
         return f"BinOp(left={self.left!r}, op={self.op!r}, right={self.right!r})"
+
+class If:
+    def __init__(self, condition, body):
+        self.condition = condition
+        self.body = body
+
+    def __repr__(self):
+        return f"If(condition={self.condition!r}, body={self.body!r})"
