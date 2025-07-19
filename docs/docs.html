@@ -149,6 +149,16 @@
                             <td><code>if x &gt; 5 {<br>&nbsp;&nbsp;say("x is greater than 5")<br>}</code></td>
                             <td>Conditionally execute statements if the condition is true</td>
                         </tr>
+                        <tr>
+                            <td>Function Definition</td>
+                            <td><code>function name {<br>&nbsp;&nbsp;say("Hello")<br>}</code></td>
+                            <td>Define a reusable block of code with a name</td>
+                        </tr>
+                        <tr>
+                            <td>Function Call</td>
+                            <td><code>call(name)</code></td>
+                            <td>Execute a previously defined function</td>
+                        </tr>
                     </tbody>
                 </table>
             </section>
@@ -219,6 +229,28 @@
 <br>&nbsp;&nbsp;<span class="function">say</span>(<span class="string">"x is five!"</span>)
 <br>}
                 </div>
+                <h3>Function Demo</h3>
+                <div class="code-block">
+<span class="comment"># Define a simple function</span>
+<br>
+<span class="keyword">function</span> hello {
+<br>&nbsp;&nbsp;<span class="function">say</span>(<span class="string">"Hello, World!"</span>)
+<br>}
+<br>
+<span class="comment"># Call the function</span>
+<br>
+<span class="function">call</span>(hello)
+<br>
+<span class="comment"># Function with multiple statements</span>
+<br>
+<span class="keyword">function</span> greet {
+<br>&nbsp;&nbsp;name = string(<span class="string">"Alice"</span>)
+<br>&nbsp;&nbsp;<span class="function">say</span>(name)
+<br>&nbsp;&nbsp;<span class="function">say</span>(<span class="string">"Welcome to our language!"</span>)
+<br>}
+<br>
+<span class="function">call</span>(greet)
+                </div>
             </section>
 
             <section id="architecture" class="section">
@@ -243,7 +275,7 @@
     
     <div class="feature-card">
         <h4>Symbol Table</h4>
-        <p>Keeps track of variables, their types, and current values while the program runs.</p>
+        <p>Keeps track of variables, functions, their types, and current values while the program runs.</p>
     </div>
 </div>
 
@@ -251,11 +283,11 @@
                 <h3>Token Types</h3>
                 <p>The lexer recognizes the following token types:</p>
                 <ul>
-                    <li><strong>Keywords:</strong> int, string</li>
-                    <li><strong>Identifiers:</strong> Variable names</li>
+                    <li><strong>Keywords:</strong> int, string, function, call</li>
+                    <li><strong>Identifiers:</strong> Variable names, function names</li>
                     <li><strong>Literals:</strong> String literals, integer literals</li>
-                    <li><strong>Operators:</strong> Assignment (=)</li>
-                    <li><strong>Delimiters:</strong> Parentheses, quotes</li>
+                    <li><strong>Operators:</strong> Assignment (=), arithmetic operators (+, -, *, /), comparison operators (==, !=, >, <, >=, <=)</li>
+                    <li><strong>Delimiters:</strong> Parentheses, braces, quotes</li>
                     <li><strong>Functions:</strong> say</li>
                     <li><strong>Comments:</strong> Lines starting with #</li>
                 </ul>

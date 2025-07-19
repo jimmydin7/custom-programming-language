@@ -1,5 +1,5 @@
 #AST Generator
-from .ast_nodes import VarAssign, Say, Repeat, BinOp, If
+from .ast_nodes import VarAssign, Say, Repeat, BinOp, If, Function, FunctionCall
 from helpers.utils import *
 
 class Parser:
@@ -26,6 +26,10 @@ class Parser:
                     self.ast.append(self.parse_repeat())
                 elif token[1] == 'if':
                     self.ast.append(self.parse_if())
+                elif token[1] == 'function':
+                    self.ast.append(self.parse_function())
+                elif token[1] == 'call':
+                    self.ast.append(self.parse_function_call())
                 else:
                     self.ast.append(self.parse_var_assign())
             else:
@@ -165,3 +169,37 @@ class Parser:
                 self.error(f"Unexpected token {token} in if body")
         self.expect('RBRACE')
         return If(condition, body)
+
+    def parse_function(self):
+        self.expect('ID')  # 'function'
+        name = self.expect('ID')[1]
+        self.expect('LBRACE')
+        
+        body = []
+        while self.peek() and self.peek()[0] != 'RBRACE':
+            token = self.peek()
+            if token[0] == 'ID':
+                if token[1] == 'say':
+                    body.append(self.parse_say())
+                elif token[1] == 'repeat':
+                    body.append(self.parse_repeat())
+                elif token[1] == 'if':
+                    body.append(self.parse_if())
+                elif token[1] == 'function':
+                    body.append(self.parse_function())
+                elif token[1] == 'call':
+                    body.append(self.parse_function_call())
+                else:
+                    body.append(self.parse_var_assign())
+            else:
+                self.error(f"Unexpected token {token} in function body")
+        
+        self.expect('RBRACE')
+        return Function(name, body)
+
+    def parse_function_call(self):
+        self.expect('ID')  # 'call'
+        self.expect('LPAREN')
+        name = self.expect('ID')[1]
+        self.expect('RPAREN')
+        return FunctionCall(name)

@@ -1,5 +1,3 @@
-![GitHub Clones](https://img.shields.io/badge/GitHub%20Clones-84-blue?logo=github&style=for-the-badge)
-![GitHub Visitors](https://img.shields.io/badge/GitHub%20Visitors-341-brightgreen?logo=github&style=for-the-badge)
 # Custom Programming Language
 **View demo & docs [here](https://jimmydin7.github.io/custom-programming-language/docs)**
 
@@ -15,6 +13,7 @@ This version supports basic features like:
 - Repeat blocks for simple loops (`repeat x { ... }`)
 - Arithmetic operators in expressions (`+`, `-`, `*`, `/`)
 - If statements for conditional execution (`if ... { ... }`)
+- Function definitions and calls (`function name { ... }` and `call(name)`)
 
 ---
 
@@ -60,6 +59,13 @@ x = int(5)
 if x == 5 {
     say("x is five!")
 }
+
+# Function demo
+function hello {
+    say("Hello from function!")
+}
+
+call(hello)
 ```
 
 ---
@@ -85,7 +91,6 @@ if x == 5 {
 - [x] Repeat blocks (`repeat x { ... }`)
 - [x] Arithmetic operators in expressions
 - [x] If statements for conditional execution
-- [x] Expressions / math
+- [x] Function definitions and calls
 - [ ] Error handling (improved)
-- [ ] Functions
-- [ ] Arguments on functions
+- [ ] `

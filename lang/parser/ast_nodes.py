@@ -41,3 +41,18 @@ class If:
 
     def __repr__(self):
         return f"If(condition={self.condition!r}, body={self.body!r})"
+
+class Function:
+    def __init__(self, name, body):
+        self.name = name
+        self.body = body
+
+    def __repr__(self):
+        return f"Function(name={self.name!r}, body={self.body!r})"
+
+class FunctionCall:
+    def __init__(self, name):
+        self.name = name
+
+    def __repr__(self):
+        return f"FunctionCall(name={self.name!r})"

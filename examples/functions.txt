@@ -1,0 +1,24 @@
+# Function example
+function hello {
+    say("Hello, World!")
+}
+
+call(hello)
+
+# Function with multiple statements
+function greet {
+    name = string("Alice")
+    say(name)
+    say("Welcome to our language!")
+}
+
+call(greet)
+
+# Function with repeat
+function countdown {
+    repeat 3 {
+        say("Counting down...")
+    }
+}
+
+call(countdown) 

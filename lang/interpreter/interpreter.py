@@ -1,5 +1,5 @@
 from .environment import Environment
-from ..parser.ast_nodes import VarAssign, Say, Repeat, BinOp, If
+from ..parser.ast_nodes import VarAssign, Say, Repeat, BinOp, If, Function, FunctionCall
 
 class Interpreter:
     def __init__(self, ast):
@@ -72,5 +72,11 @@ class Interpreter:
             if condition_result:
                 for stmt in node.body:
                     self.execute(stmt)
+        elif isinstance(node, Function):
+            self.env.set_function(node.name, node)
+        elif isinstance(node, FunctionCall):
+            function = self.env.get_function(node.name)
+            for stmt in function.body:
+                self.execute(stmt)
         else:
             raise RuntimeError(f"Unknown AST node type: {type(node)}")
